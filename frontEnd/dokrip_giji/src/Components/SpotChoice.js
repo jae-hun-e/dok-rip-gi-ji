@@ -4,24 +4,27 @@ import SearchBar from "./SearchBar";
 import Button from "@mui/material/Button";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { cursor } from "../Atoms/CursorAtom";
-import { img } from "../Static/Select house-bro 1.svg";
+import { ReactComponent as Image } from "../Static/Select house-bro 1.svg";
+import { spotData } from "../Atoms/SpotAtom";
 
 function SpotChoice() {
   const setCursor = useSetRecoilState(cursor);
+  const setSpot = useSetRecoilState(spotData);
   // 커서 변경
   const onClick = () => {
     setCursor(true);
   };
+
   return (
     <Container>
       <Title>어느곳 근처를 찾아볼까요?</Title>
       <Line />
-      <img />
+      <Image width={340} height={200} />
       <Btn variant="contained" onClick={onClick}>
         직접 지도에서 위치 선택
       </Btn>
       <SearchBar />
-      <NextBtn>
+      <NextBtn onClick={() => setSpot(true)}>
         <p>다음</p>
       </NextBtn>
     </Container>
@@ -44,12 +47,6 @@ const Container = styled.div`
   z-index: 10;
   gap: 10px;
   border-radius: 10px;
-
-  img {
-    border: black;
-    width: 100%;
-    height: 200px;
-  }
 `;
 
 const Title = styled.p`
@@ -61,7 +58,7 @@ const Title = styled.p`
 const Line = styled.div`
   color: black;
   width: 100%;
-  height: 3px;
+  height: 1px;
 `;
 
 const Btn = styled(Button)`

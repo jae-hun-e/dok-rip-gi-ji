@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom/";
+import { ReactComponent as Logo } from "../Static/Frame.svg";
 
 const Container = styled.div`
   padding: 0 20px;
@@ -16,8 +17,6 @@ const Container = styled.div`
   }
 `;
 
-const Logo = styled.div``;
-
 const Login = styled.div`
   width: 200px;
   height: 50px;
@@ -29,9 +28,7 @@ const Login = styled.div`
 function Header() {
   return (
     <Container>
-      <Logo>
-        <p>test1</p>
-      </Logo>
+      <Logo width={100} height={50} />
       <Login>
         <Link to="/">
           <p>마이페이지</p>

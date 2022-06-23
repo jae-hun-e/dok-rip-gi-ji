@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "@mui/material/Button";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { cursor } from "../Atoms/CursorAtom";
+import { ReactComponent as Image } from "../Static/Group 70.svg";
 
 function AmenitiesComp() {
   const list = [
@@ -32,7 +33,7 @@ function AmenitiesComp() {
       <Container>
         <Title>근처에 어떤게 필요하세요?</Title>
         <Line />
-        <img />
+        <Image width={340} height={200} />
         <Box>
           {list.map((item, idx) => (
             <Btn
@@ -74,12 +75,6 @@ const Container = styled.div`
   z-index: 10;
   gap: 10px;
   border-radius: 10px;
-
-  img {
-    border: black;
-    width: 100%;
-    height: 200px;
-  }
 `;
 
 const Title = styled.p`
@@ -91,7 +86,7 @@ const Title = styled.p`
 const Line = styled.p`
   color: gray;
   width: 100%;
-  height: 3px;
+  height: 1px;
   background-color: black;
 `;
 
