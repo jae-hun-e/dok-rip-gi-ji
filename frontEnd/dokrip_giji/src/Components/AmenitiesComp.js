@@ -118,6 +118,9 @@ const NextBtn = styled(Button)`
     align-items: center;
     position: absolute;
     bottom: 20px;
+    :hover {
+      background-color: ${(props) => props.theme.bgColor};
+    }
     p {
       font-size: 18px;
       color: black;

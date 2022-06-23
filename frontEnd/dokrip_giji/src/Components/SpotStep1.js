@@ -1,34 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
-import { ReactComponent as Image } from "../Static/Walking around-amico 1.svg";
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
+import { ReactComponent as Image } from "../Static/Select house-bro 1.svg";
+import SearchBar from "./SearchBar";
+import { useSetRecoilState } from "recoil";
+import { cursor } from "../Atoms/CursorAtom";
 
-function SpotStep2() {
+function SpotStep1() {
+  const setCursor = useSetRecoilState(cursor);
+  const onClick = () => {
+    setCursor(true);
+  };
   return (
     <>
       <Title>어느곳 근처를 찾아볼까요?</Title>
       <Line />
       <Image width={340} height={200} />
-      <Box width={300}>
-        <Slider
-          size="small"
-          defaultValue={70}
-          aria-label="Small"
-          valueLabelDisplay="auto"
-        />
-        <Slider
-          defaultValue={50}
-          aria-label="Default"
-          valueLabelDisplay="auto"
-        />
-      </Box>
+      <Btn variant="contained" onClick={onClick}>
+        직접 지도에서 위치 선택
+      </Btn>
+      <SearchBar />
     </>
   );
 }
 
-export default SpotStep2;
+export default SpotStep1;
 
 const Title = styled.p`
   margin-top: 20px;
